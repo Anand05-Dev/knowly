@@ -1,7 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
-import { AppSidebar } from "./_components/AppSideBar";
+import { AppSidebar } from "./_components/AppSidebar";
 import { ClerkProvider } from "@clerk/nextjs";
 import Provider from "./provider";
 
