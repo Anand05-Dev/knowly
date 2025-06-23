@@ -12,7 +12,7 @@ export async function POST(req) {
             recordId:recordId
           },
         });
-        return NextResponse.json(inngestRunId.ids[0]);
+        return NextResponse.json({ runId: inngestRunId.ids[0] });
 }
 
 

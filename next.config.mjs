@@ -6,7 +6,8 @@ const nextConfig = {
         'daxg39y63pxwu.cloudfront.net',
         'upload.wikimedia.org',
         'encrypted-tbn0.gstatic.com',
-        'example-cdn.com', 
+        'example-cdn.com',
+        'usnews.com' ,
       ],
     },
   };

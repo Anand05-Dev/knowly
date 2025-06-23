@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "extract-hosts": "node scripts/extract-hostnames.js"
   },
   "dependencies": {
     "@clerk/nextjs": "^6.22.0",
@@ -27,6 +28,8 @@
     "next": "15.3.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-markdown": "^10.1.0",
+    "react-syntax-highlighter": "^15.6.1",
     "tailwind-merge": "^3.3.1",
     "tailwindcss-animate": "^1.0.7",
     "uuidv4": "^6.2.13"
