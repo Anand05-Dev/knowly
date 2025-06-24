@@ -18,15 +18,25 @@ function SearchQueryResult() {
   }, []);
 
   const GetSearchQueryRecord = async () => {
-    const { data: Library } = await supabase
+    const { data: Library, error } = await supabase
       .from('Library')
       .select('*,Chats(*)')
       .eq('libId', libId);
-
-    console.log("Page.jsx Library", Library[0]);
-    setSearchInputRecord(Library[0]);
-
+  
+    if (error) {
+      console.error("Supabase fetch error:", error.message);
+      return;
+    }
+  
+    if (Array.isArray(Library) && Library.length > 0) {
+      console.log("Page.jsx Library", Library[0]);
+      setSearchInputRecord(Library[0]);
+    } else {
+      console.warn("No record found for libId:", libId);
+      setSearchInputRecord(null); // Or show fallback UI
+    }
   };
+  
 
   return (
     <div>

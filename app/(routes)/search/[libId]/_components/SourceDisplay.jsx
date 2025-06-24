@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import React from 'react';
 
-function SourceDisplay({ searchResult , loadingSearch}) {
+function SourceDisplay({ searchResult, loadingSearch }) {
   const webResult = searchResult;
 
   return (
@@ -12,10 +12,11 @@ function SourceDisplay({ searchResult , loadingSearch}) {
           <div className="flex gap-4" style={{ width: '660px', maxWidth: '100%' }}>
             {webResult.map((item, index) => {
               const imageSrc = item?.thumbnail;
+              const key = item?.url || `source-${index}`;
 
               return (
                 <div
-                  key={index}
+                  key={key}
                   className="w-[220px] flex-shrink-0 flex items-start gap-3 p-4 border border-gray-200 rounded-lg hover:shadow-sm transition-colors bg-white"
                 >
                   {imageSrc &&
@@ -47,15 +48,18 @@ function SourceDisplay({ searchResult , loadingSearch}) {
               );
             })}
           </div>
-          {loadingSearch && <div>
-            {
-              [1,2,3,4].map((item,index)=>(
-                <div className='w-[200px] rounded-2xl bg-slate-100 animate-pulse'>
 
-                </div>
-              ))
-            }
-          </div> }
+          {/* Loading placeholders */}
+          {loadingSearch && (
+            <div className="flex gap-4 mt-4">
+              {[1, 2, 3, 4].map((item) => (
+                <div
+                  key={`loading-${item}`}
+                  className="w-[200px] h-[100px] rounded-2xl bg-slate-100 animate-pulse"
+                />
+              ))}
+            </div>
+          )}
         </div>
       ) : (
         <p className="text-sm text-gray-500">No sources available.</p>
